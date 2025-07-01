@@ -1,9 +1,9 @@
-/* popup */
+/* --------------------------------------------------------popup---------------------------------------------- */
 .popup-overlay { /* fond semi transparent couvrant tout l'ecran*/
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(106, 90, 177, 0.5); /*couleur du fond semi transparent*/
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -11,11 +11,9 @@
 .popUpText{
     color: black;
 }
-
 .popup-overlay.active{ /*affichage de la popup*/
     display: flex;
 }
-
 .popup-content{ /*contenu de la pop up avec animation*/
     background: #fff;
     padding: 30px 40px;
@@ -43,7 +41,7 @@
     color: #e74c3c;
 }
 
-/* --------------------------debut pour la checkbox caché ----------------------------*/
+/* --------------------------debut pour la checkbox caché qui s'ouvre----------------------------*/
 .imageSectionTest{
     width: 150px;
 }
