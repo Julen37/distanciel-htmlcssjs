@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="parallax">
+    <main>
+        <div id="popup" class="popup-overlay"> <!--pop up-->
+            <div class="popup-content">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <h2 class="popUpText">Bienvenue !</h2>
+                <p class="popUpText">Ceci est un pop-up qui s'affiche automatiquement</p>
+            </div>
+        </div>
+        <div class="section"> <!-- pour la checkbox caché où on appui et ça deroule le texte puis le recache-->
+            <img src="images/logoimage.png" alt="" class="imageSectionTest">
+            <p class="petit-texte"> je suis un texte</p>
+            <!-- la checkbox qui sera caché apres -->
+            <input type="checkbox" id="toggle-desc" class="toggle-desc">
+            <label for="toggle-desc" class="arrow-container">
+                <span class="arrow-down"> Voir plus</span>
+            </label>
+            <div class="description-box">
+                <p class="textBoxBlack">Voici le message texte descriptif qui s’affiche quand on appui sur voir plus</p>
+            </div>
+        </div>
+        <section id="fadein-section" class="fade-in"> <!--fade in  -->
+            <h2 class="fadeinColor"> Section animée en fade-in</h2>
+            <p class="fadeinColor">Ce contenu apparait en fondu grace a une animation en css</p>
+        </section>
+
+        <section class="zoom-rotate-in"> <!-- zoom rotate in-->
+            <h2 class="fadeinColor"> Section en effet zoom et rotation</h2>
+            <p class="fadeinColor">Ce contenu apparait avec un effet de zoom grace a une animation en css</p>  
+        </section>
+
+        <section> <!-- animation cartoon avec bouton effet bounce-->
+            <button class="bounce">Cliquez-moi</button>
+        </section>
+
+        <section> <!-- effet shake-->
+            <button class="shake">Shake-moi</button>
+        </section>
+    </main>
+</body>
+<script src="index.js"></script>
+</html>

@@ -1,0 +1,189 @@
+/* popup */
+.popup-overlay { /* fond semi transparent couvrant tout l'ecran*/
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popUpText{
+    color: black;
+}
+
+.popup-overlay.active{ /*affichage de la popup*/
+    display: flex;
+}
+
+.popup-content{ /*contenu de la pop up avec animation*/
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    position: relative;
+    min-width: 300px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s, transform 0.4s;
+}
+.popup-overlay.active .popup-content { /*animation d'apparition*/
+    opacity: 1;
+    transform: scale(1);
+}
+.close-btn { /*bouton de fermeture*/
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+}
+.close-btn:hover {
+    color: #e74c3c;
+}
+
+/* --------------------------debut pour la checkbox caché ----------------------------*/
+.imageSectionTest{
+    width: 150px;
+}
+.section{
+	width: 600px;
+	padding: 20px;
+	background: grey;
+	border-radius: 8px;
+	text-align: center;
+	margin: 0 auto;
+}
+.section img {
+	max-width: 100%;
+	border-radius: 5px;
+}
+.petit-texte {
+	font-size: 14px;
+	color: black;
+}
+
+.toggle-desc {
+	display: none;
+}
+.arrow-container {
+	margin: 15px 0;
+	cursor: pointer;
+	display: inline block;
+}
+.arrow-down {
+	font-size: 25px;
+	display: inline block;
+	transition: transform  0,3s;
+}
+
+.description-box{
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0,3s ease-out; /*ease-out est une fonction d’acceleration en css, ça va dire que le changement va durer 0,3s et l’animation va se ralentir en arrivant a la fin de la boite, vite au début et de plus en plus doucement a la fin (ease-in étant l’inverse)*/
+	background: grey;
+	border-radius: 5px;
+	padding: 0 15px;
+	margin: 10px 0;
+}
+.textBoxBlack{
+	color: #111;
+}
+
+.toggle-desc:checked ~ .description-box{ /*verifie que la checbox a été checké*/
+	max-height: 500px;
+	padding: 15px;
+}
+.toggle-desc:checked ~ .arrow-container .arrow-down {
+	transform: scale(1.5);
+}
+/* --------------------------fin pour la checkbox caché ----------------------------*/
+
+/* --------------------------debut pour l'animation fade in ----------------------------*/
+.fade-in{
+    width: 500px;
+    margin-top: 10em;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: fadeInMove 3s ease-out forwards; /* on nomme l'animation, combien de temps, l'animation ralenti a la fin et forwards permet de garder son dernier etat */
+}
+.fadeinColor {
+    color: #111;
+}
+@keyframes fadeInMove { /*nom de l'animation nommé dans .fade-in avec animation:*/
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --------------------------fin pour l'animation fade in ----------------------------*/
+
+/* --------------------------debut pour l'effet zoom rotate in ----------------------------*/
+.zoom-rotate-in{
+    opacity: 0;
+    transform: scale(0.5) rotate(-30deg);
+    animation: zoomRotateIn 2s cubic-bezier(.68, -0.55, .27, 1.55) forwards; /*cubic-bezier fait la courbe de vitesse personnalisé (x1, y1, x2, y2) 1=premier point de controle 2=deuxieme point de controle quand ca va plus haut qu'entre 0et 1 ca fait un rebondissement plus augmenté*/
+}
+@keyframes zoomRotateIn {
+    to{
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    
+}
+/* --------------------------fin pour l'effet zoom rotate in ----------------------------*/
+
+/* --------------------------debut pour l'animation cartoon avec bouton effet bounce----------------------------*/
+.bounce{
+    display: inline-block;
+    animation: bounce 1s infinite;
+}
+@keyframes bounce {
+    0%, 100%{
+        transform: translateY(0); /* sur l'axe y pcq on veut que ca bounce de haut en bas*/
+    }
+    20%{
+        transform: translateY(-200px);
+    }
+    40%{
+        transform: translateY(-140px);
+    }
+    60%{
+        transform: translateY(-70px);
+    }
+    80%{
+        transform: translateY(-35px);
+    }
+}
+/* --------------------------fin pour l'animation cartoon avec bouton effet bounce----------------------------*/
+
+/* --------------------------debut pour l'effet shake----------------------------*/
+.shake{
+    display: inline-block; /*ca cumule le inline et block, utile pour les bouton image et animation*/
+    animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both; /* si on met both ca le fait une fois, si on met infinite ca le repette a l'infini*/
+}
+@keyframes shake {
+    10%, 90%{transform: translateX(-5px);} /*on fait sur l'axe x vu que c'est pour shaker*/
+    20%, 80%{transform: translateX(10px);}
+    30%, 50%, 70%{transform: translateX(-20px);}
+    40%, 60%{transform: translateX(20px);}
+}
+/* --------------------------fin pour l'effet shake----------------------------*/
+
+/* --------------------------debut pour l'effet paralaxe----------------------------*/
+.parallax{
+    background-image: url(images/logoimage.png); /*definit mon image de fond*/ 
+    height: 100%; /*permet de remplir 100% le body*/
+    background-attachment: fixed; /* fixe l'image de fond au scroll*/
+    background-position: center; /* poisitionne l'image */
+    background-repeat: no-repeat; /*empeche la repetition de l'image*/
+    background-size: cover; /* redimensionne l'image pour couvrir l'integralité de l'element*/
+}
+/*si on a un probleme il faut dans le main juste en dessous le body se melange avec le header, ce qu'il faut faire c'est aller au main et lui ajouter un padding top pour pas que ca il est pas coller au header*/
+
+main{ /*attention doit etre dans les debut du css vu que c'est une balise principale*/
+    padding-top: 4px; /*ajoute un padding top a tout mon contenu du main pour ne pas etre en dessous de mon header fixe, comme ca y a pas de probleme*/
+}
+/* --------------------------fin pour l'effet paralaxe----------------------------*/
